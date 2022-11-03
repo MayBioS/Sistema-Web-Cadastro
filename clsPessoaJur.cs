@@ -14,6 +14,11 @@ namespace WsClientes
         private string _cnpj;
         private string _razao_social;
         private string _insc_estatual;
+        private string _salario_juridico; //adicionado
+private string _logradouro;
+        private string _numero;
+        private string _complemento;
+        private string _tipoEndereco;
 
         public string cnpj
         {
@@ -33,6 +38,36 @@ namespace WsClientes
             set { _insc_estatual = value; }
         }
 
+        public string salario_juridico //adicionado 
+        {
+            get { return _salario_juridico; }
+            set { _salario_juridico = value; }
+        }
+
+public string logradouro
+        {
+            get { return _logradouro; }
+            set { _logradouro = value; }
+        }
+
+public string numero
+        {
+            get { return _numero; }
+            set { _numero = value; }
+        }
+
+public string complemento
+        {
+            get { return _complemento; }
+            set { _complemento = value; }
+        }
+
+public string tipoEndereco
+        {
+            get { return _tipoEndereco; }
+            set { _tipoEndereco = value; }
+        }
+
         public clsPessoaJur()
         {
             this.cod = 0;
@@ -43,9 +78,15 @@ namespace WsClientes
             this.cnpj = "";
             this.razao_social = "";
             this.insc_estatual = "";
+            this.salario_juridico = "";//adicionado
+this.logradouro = "";
+this.numero = "";
+this.complemento = "";
+this.tipoEndereco = "";
+
         }
 
-        public clsPessoaJur(long cod, string nome, string email, string telefone, string login, string senha, string cnpj, string razao_social, string insc_estatual)
+        public clsPessoaJur(long cod, string nome, string email, string telefone, string login, string senha, string cnpj, string razao_social, string insc_estatual, string salario_juridico, string logradouro, string numero, string complemento, string tipoEndereco) //adicionado
         {
             this.cod = cod;
             this.nome = nome;
@@ -56,6 +97,11 @@ namespace WsClientes
             this.cnpj = cnpj;
             this.razao_social = razao_social;
             this.insc_estatual = insc_estatual;
+            this.salario_juridico = salario_juridico;
+this.logradouro = logradouro;
+this.numero = numero;
+this.complemento = complemento;
+this.tipoEndereco = tipoEndereco;
         }
 
         public override void incluir()
@@ -64,10 +110,10 @@ namespace WsClientes
 
             StringBuilder strSql = new StringBuilder("");
             strSql.Append("INSERT INTO clientes (nome, email, telefone, login, senha, cnpj, razao_social, insc_estatual)");
-            strSql.Append("VALUES(@nome, @email, @telefone, @login, @senha, @cnpj, @razao_social, @insc_estatual)");
+            strSql.Append("VALUES(@nome, @email, @telefone, @login, @senha, @cnpj, @razao_social, @insc_estatual, @salario_juridico, @logradouro, @numero, @complemento, @tipoEndereco)");
 
             OleDbConnection conn = new OleDbConnection(strConn);
-            OleDbParameter[] param = new OleDbParameter[8];
+            OleDbParameter[] param = new OleDbParameter[13];
             param[0] = new OleDbParameter("@nome", this.nome);
             param[1] = new OleDbParameter("@email", this.email);
             param[2] = new OleDbParameter("@telefone", this.telefone);
@@ -76,6 +122,11 @@ namespace WsClientes
             param[5] = new OleDbParameter("@cnpj", this.cnpj);
             param[6] = new OleDbParameter("@razao_social", this.razao_social);
             param[7] = new OleDbParameter("@insc_estatual", this.insc_estatual);
+            param[8] = new OleDbParameter("@salario_juridico", this.salario_juridico);
+param[9] = new OleDbParameter("@logradouro", this.logradouro);
+param[10] = new OleDbParameter("@numero", this.numero);
+param[11] = new OleDbParameter("@complemento", this.complemento);
+param[12] = new OleDbParameter("@tipoEndereco", this.tipoEndereco);
             OleDbCommand cmd = new OleDbCommand();
             for (byte i = 0; i < param.Length; i++)
             {
@@ -120,10 +171,15 @@ namespace WsClientes
             strSql.Append("  cnpj = @cnpj, ");
             strSql.Append("  razao_social = @razao_social, ");
             strSql.Append("  insc_estatual = @insc_estatual ");
+            strSql.Append("  salario_juridico = @salario_juridico "); //adicionado
+strSql.Append("  logradouro = @logradouro ");
+strSql.Append("  numero = @numero ");
+strSql.Append("  complemento = @complemento ");
+strSql.Append("  tipoEndereco = @tipoEndereco ");
             strSql.Append("WHERE cod = @cod;");
 
             OleDbConnection conn = new OleDbConnection(connString);
-            OleDbParameter[] param = new OleDbParameter[9];
+            OleDbParameter[] param = new OleDbParameter[10];
             param[0] = new OleDbParameter("@nome", this.nome);
             param[1] = new OleDbParameter("@email", this.email);
             param[2] = new OleDbParameter("@telefone", this.telefone);
@@ -133,6 +189,11 @@ namespace WsClientes
             param[6] = new OleDbParameter("@razao_social", this.razao_social);
             param[7] = new OleDbParameter("@insc_estatual", this.insc_estatual);
             param[8] = new OleDbParameter("@cod", this.cod);
+            param[9] = new OleDbParameter("@salario_juridico", this.salario_juridico); //adicionado
+param[10] = new OleDbParameter("@logradouro", this.logradouro);
+param[11] = new OleDbParameter("@numero", this.numero);
+param[12] = new OleDbParameter("@complemento", this.complemento);
+param[13] = new OleDbParameter("@tipoEndereco", this.tipoEndereco);
             OleDbCommand cmd = new OleDbCommand();
             for (byte i = 0; i < param.Length; i++)
             {
@@ -168,7 +229,7 @@ namespace WsClientes
             string connString = System.Configuration.ConfigurationSettings.AppSettings.Get("connectionstring").ToString();
 
             StringBuilder strSql = new StringBuilder("");
-            strSql.Append("SELECT cod, nome, email, telefone, login, senha, cnpj, razao_social, insc_estatual ");
+            strSql.Append("SELECT cod, nome, email, telefone, login, senha, cnpj, razao_social, insc_estatual, salario_juridico, logradouro, numero, complemento, tipoEndereco ");
             strSql.Append("FROM clientes WHERE cod = @cod");
 
             OleDbConnection conn = new OleDbConnection(connString);
@@ -202,6 +263,11 @@ namespace WsClientes
                 conn.Dispose();
                 cmd.Dispose();
             }
+
+        }
+        public override void PagarImposto() //adicionado
+        {
+            throw new NotImplementedException();
         }
     }
 }

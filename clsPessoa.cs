@@ -64,7 +64,7 @@ namespace WsClientes
         public abstract void incluir();
         public abstract void alterar();
         public abstract DataSet obter();
-        public abstract PagarImposto(); //adicionado 
+        public abstract void PagarImposto(); //adicionado 
         public virtual void excluir()
         {
             string strConn = System.Configuration.ConfigurationSettings.AppSettings.Get("connectionstring").ToString();
@@ -143,17 +143,15 @@ namespace WsClientes
             }
             return ret;
         }
-        public virtual PagarImposto() //adicionado
+        double SalarioImposto() //adicionado
         {
-
             double salario = 4800.00;
             double salarioFinal = 0;
 
-            if (salario >= 606.00.00 && salario <= 1212.00.00)
+            if (salario >= 606.00 && salario <= 1212.00)
             {
 
                 salarioFinal = salario - (7.5 * (salario / 100));
-                Console.WriteLine(salarioFinal);
             }
             else
             {
@@ -161,20 +159,16 @@ namespace WsClientes
                 {
 
                     salarioFinal = salario - (9.00 * (salario / 100));
-                    Console.WriteLine(salarioFinal);
                 }
                 if (salario > 2427.35 && salario <= 3641.03)
                 {
                     salarioFinal = salario - (12.00 * (salario / 100));
-                    Console.WriteLine(salarioFinal);
-
-              
-              if (salario > 3641.03)
-              {
-                salarioFinal = salario - (14.00 * (salario / 100));
-                Console.WriteLine(salarioFinal);
-              }  }
-                return salarioFinal;
+                    if (salario > 3641.03)
+                    {
+                        salarioFinal = salario - (14.00 * (salario / 100));
+                    }
+                }
+                return;
             }
         }
     }

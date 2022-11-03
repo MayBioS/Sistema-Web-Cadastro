@@ -176,7 +176,7 @@ namespace WsClientes
             string connString = System.Configuration.ConfigurationSettings.AppSettings.Get("connectionstring").ToString();
 
             StringBuilder strSql = new StringBuilder("");
-            strSql.Append("SELECT cod, nome, email, telefone, login, senha, cpf, dtnasc, rg, salario "); //adicionado
+            strSql.Append("SELECT cod, nome, email, telefone, login, senha, cpf, dtnasc, rg, salario"); //adicionado
             strSql.Append("FROM clientes WHERE cod = @cod");
 
             OleDbConnection conn = new OleDbConnection(connString);
@@ -211,6 +211,11 @@ namespace WsClientes
                 cmd.Dispose();
             }
         }
+        public override void PagarImposto() //adicionado
+        {
+            throw new NotImplementedException();
+        }
 
     }
+
 }

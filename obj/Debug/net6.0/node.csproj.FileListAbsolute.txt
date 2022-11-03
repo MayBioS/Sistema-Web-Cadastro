@@ -1,0 +1,5 @@
+/home/runner/SistemaWeb/obj/Debug/net6.0/node.csproj.AssemblyReference.cache
+/home/runner/SistemaWeb/obj/Debug/net6.0/node.GeneratedMSBuildEditorConfig.editorconfig
+/home/runner/SistemaWeb/obj/Debug/net6.0/node.AssemblyInfoInputs.cache
+/home/runner/SistemaWeb/obj/Debug/net6.0/node.AssemblyInfo.cs
+/home/runner/SistemaWeb/obj/Debug/net6.0/node.csproj.CoreCompileInputs.cache
