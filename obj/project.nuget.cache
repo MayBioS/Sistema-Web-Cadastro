@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aBbeuNI/HS1CS5/sbX+6NuULdaLy/CoVUL7FSeEm5At6AeDbGrjfNzFVQUuBsTYIdiHmAlavyD5y2MYVdmmFRA==",
+  "dgSpecHash": "QulbUpl0b1hl79+VerhXmBfZq7B9YdW2XQ5E0MNjPnSS0Rx4T4mRIIf2gZ67m8jRDQDmNPwwYQSryZGkJvlNig==",
   "success": true,
-  "projectFilePath": "/home/runner/SistemaWeb/node.csproj",
+  "projectFilePath": "/home/runner/CSharp/main.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/runner/SistemaWeb/node.csproj",
-      "projectName": "node",
-      "projectPath": "/home/runner/SistemaWeb/node.csproj",
+      "projectUniqueName": "/home/runner/CSharp/main.csproj",
+      "projectName": "main",
+      "projectPath": "/home/runner/CSharp/main.csproj",
       "packagesPath": "/home/runner/.nuget/packages/",
-      "outputPath": "/home/runner/SistemaWeb/obj/",
+      "outputPath": "/home/runner/CSharp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/runner/.nuget/NuGet/NuGet.Config"
